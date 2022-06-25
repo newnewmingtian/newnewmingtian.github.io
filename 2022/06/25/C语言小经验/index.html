@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C语言小经验 | 欢迎来到明天天天</title><meta name="keywords" content="C语言小经验"><meta name="author" content="明天"><meta name="copyright" content="明天"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一if 和 ++ 和 &amp;&amp; ——(各类逻辑运算符 和 运算符和 if 之间的关系）  123456789101112131415161718192021222324252627282930313233343536#include&lt;stdio.h&gt;int main()&amp;#123;    &amp;#123;    int  a &#x3D; -1, b &#x3D; 0;    int c, d,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言小经验">
+<meta property="og:url" content="http://example.com/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:site_name" content="欢迎来到明天天天">
+<meta property="og:description" content="一if 和 ++ 和 &amp;&amp; ——(各类逻辑运算符 和 运算符和 if 之间的关系）  123456789101112131415161718192021222324252627282930313233343536#include&lt;stdio.h&gt;int main()&amp;#123;    &amp;#123;    int  a &#x3D; -1, b &#x3D; 0;    int c, d,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-06-25T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-25T11:52:27.821Z">
+<meta property="article:author" content="明天">
+<meta property="article:tag" content="我是网站关键字用于搜索引擎的SEO">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C语言小经验',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: ture,
+  isToc: true,
+  postUpdate: '2022-06-25 19:52:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">欢迎来到明天天天</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言小经验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-25T04:00:00.000Z" title="发表于 2022-06-25 12:00:00">2022-06-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-25T11:52:27.821Z" title="更新于 2022-06-25 19:52:27">2022-06-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言小经验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><h2 id="if-和-和-amp-amp-——-各类逻辑运算符-和-运算符和-if-之间的关系）"><a href="#if-和-和-amp-amp-——-各类逻辑运算符-和-运算符和-if-之间的关系）" class="headerlink" title="if 和 ++ 和 &amp;&amp; ——(各类逻辑运算符 和 运算符和 if 之间的关系）"></a>if 和 ++ 和 &amp;&amp; ——(各类逻辑运算符 和 运算符和 if 之间的关系）</h2></blockquote>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="type">int</span>  a = <span class="number">-1</span>, b = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> c, d,m;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">/* m= (c = a++) &amp;&amp; (d = b++);</span></span><br><span class="line"><span class="comment">    printf(&quot;%d\n&quot;, m);*/</span></span><br><span class="line">        </span><br><span class="line">    (c = a++) &amp;&amp; (d = b++); <span class="comment">//&amp;&amp;逻辑与，左右都为true，则为true</span></span><br><span class="line">   <span class="comment">//a给c赋值，a自身++（++在算子的右边，是先参与运算随后自身++，赋值也是一种运算）</span></span><br><span class="line">   <span class="comment">//c99,逻辑运算符短路特性，&amp;&amp;是一种双目运算符而当左边所给表达式或变量不为0时 </span></span><br><span class="line">   <span class="comment">//则为true，左侧c=-1。所以&amp;&amp;右侧的d =b++也会得到执行</span></span><br><span class="line">    printf_s(<span class="string">&quot;c=%d d=%d\n&quot;</span>, c, d);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#123;</span><br><span class="line">      <span class="type">int</span>  a = <span class="number">-1</span>, b = <span class="number">0</span>;</span><br><span class="line">      <span class="type">int</span>  c, d;</span><br><span class="line">     (c = ++a) &amp;&amp; (d = ++b); <span class="comment">//++在算子的左边，先自身++。后参与运算，d会报warning，d此时未初始化值</span></span><br><span class="line">      printf_s(<span class="string">&quot;c=%d d=%d\n&quot;</span>, c, d);  </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">        <span class="type">int</span> a = <span class="number">-1</span>, b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (a++ &amp;&amp; b++) <span class="comment">//a=-1,b=0, a为真，b为假，相与的结果为假==0，if（0）=假，则不执行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">if</span> (++a &amp;&amp; ++b) <span class="comment">//a=1,b=2,if(1)=真</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">        &#125;          </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="完结撒花🥰！！！"><a href="#完结撒花🥰！！！" class="headerlink" title="完结撒花🥰！！！"></a>完结撒花🥰！！！</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">明天</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/">http://example.com/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">欢迎来到明天天天</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/06/17/%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C语言题（选择排序与二分法查找）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">明天</div><div class="author-info__description">您好明天</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/newnewmingtian" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:newmingtian@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-%E5%92%8C-%E5%92%8C-amp-amp-%E2%80%94%E2%80%94-%E5%90%84%E7%B1%BB%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6-%E5%92%8C-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C-if-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">if 和 ++ 和 &amp;&amp; ——(各类逻辑运算符 和 运算符和 if 之间的关系）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8C%E7%BB%93%E6%92%92%E8%8A%B1%F0%9F%A5%B0%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">完结撒花🥰！！！</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/" title="C语言小经验"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言小经验"/></a><div class="content"><a class="title" href="/2022/06/25/C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%BB%8F%E9%AA%8C/" title="C语言小经验">C语言小经验</a><time datetime="2022-06-25T04:00:00.000Z" title="发表于 2022-06-25 12:00:00">2022-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/17/%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE/" title="C语言题（选择排序与二分法查找）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言题（选择排序与二分法查找）"/></a><div class="content"><a class="title" href="/2022/06/17/%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE/" title="C语言题（选择排序与二分法查找）">C语言题（选择排序与二分法查找）</a><time datetime="2022-06-17T12:00:00.000Z" title="发表于 2022-06-17 20:00:00">2022-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/30/C%E8%AF%AD%E8%A8%80%E9%A2%98%EF%BC%88%E5%B0%8F%E5%8A%A8%E7%89%A9%E9%A2%98%EF%BC%89/" title="C语言题（小动物题）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言题（小动物题）"/></a><div class="content"><a class="title" href="/2022/05/30/C%E8%AF%AD%E8%A8%80%E9%A2%98%EF%BC%88%E5%B0%8F%E5%8A%A8%E7%89%A9%E9%A2%98%EF%BC%89/" title="C语言题（小动物题）">C语言题（小动物题）</a><time datetime="2022-05-30T04:00:00.000Z" title="发表于 2022-05-30 12:00:00">2022-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/27/C%E8%AF%AD%E8%A8%80%E9%A2%98%E6%A8%A1%E6%9D%BF/" title="C语言题（求各类数的和）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言题（求各类数的和）"/></a><div class="content"><a class="title" href="/2022/05/27/C%E8%AF%AD%E8%A8%80%E9%A2%98%E6%A8%A1%E6%9D%BF/" title="C语言题（求各类数的和）">C语言题（求各类数的和）</a><time datetime="2022-05-27T04:00:00.000Z" title="发表于 2022-05-27 12:00:00">2022-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/27/C%E8%AF%AD%E8%A8%80%E9%A2%98%EF%BC%88%E6%B1%82%E5%90%84%E7%B1%BB%E6%95%B0%E7%9A%84%E5%92%8C%EF%BC%89/" title="C语言题（求各类数的和）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言题（求各类数的和）"/></a><div class="content"><a class="title" href="/2022/05/27/C%E8%AF%AD%E8%A8%80%E9%A2%98%EF%BC%88%E6%B1%82%E5%90%84%E7%B1%BB%E6%95%B0%E7%9A%84%E5%92%8C%EF%BC%89/" title="C语言题（求各类数的和）">C语言题（求各类数的和）</a><time datetime="2022-05-27T04:00:00.000Z" title="发表于 2022-05-27 12:00:00">2022-05-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 明天</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
